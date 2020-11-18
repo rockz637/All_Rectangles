@@ -1,0 +1,95 @@
+package rectangles;
+
+import java.util.Scanner;
+import java.lang.Math;
+ class GFG { 
+	 
+	static double ans1;
+	static double ans2;
+    public static  double choose1() {
+    	Scanner s=new Scanner(System.in);
+    	int y=2;
+    	System.out.println("Enter number of lines needed for the Row : ");
+     	int x=s.nextInt();
+     	
+        if (y < 0 || y > x) return 0;
+        if (y == 0 || y == x) return 1;
+
+        double answer = 1;
+        for (int i = x-y+1; i <= x; i++) {
+            answer = answer * i;
+        }
+        for (int j = y; j > 1; j--) {
+            answer = answer / j;
+        }
+        return ans1=answer;
+    }
+        public static  double choose2() {
+        	Scanner s=new Scanner(System.in);
+        	int y=2;
+        	System.out.println("Enter number of lines needed for the column : ");
+         	int x=s.nextInt();
+         	
+            if (y < 0 || y > x) return 0;
+            if (y == 0 || y == x) return 1;
+
+            double answer = 1;
+            for (int i = x-y+1; i <= x; i++) {
+                answer = answer * i;
+            }
+            for (int j = y; j > 1; j--) {
+                answer = answer / j;
+            }
+            return ans2=answer;
+   
+    }
+    static void print(){
+    	System.out.println("The number of Rectangles in that 'Big' rectangle is: "+ans1*ans2);
+    }
+	  
+	
+ }
+	
+   class Fin_Rectangles {
+	
+
+	static void PerfectSquare(){
+	Scanner s=new Scanner(System.in);
+	System.out.println("Enter the number of Rows or Columns : ");
+	int R=s.nextInt();
+	s.close();
+	int V=(((R*(R+1))/2));
+	double W=Math.pow(V, 2);
+	System.out.println("The number of Rectangles in that 'Big' rectangle is: "+W);
+	}
+	
+}
+	public class Finding_Rectangles{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("So, What's up....You are here to find number of rectangles in a Big rectangle/ ");
+		System.out.println("");
+		System.out.println("ENTER-----> 1 for perfect square rectangle");
+		System.out.println("ENTER-----> 2 if  Rows and Columns are unequal");
+		int d=s.nextInt();
+		
+		switch(d) {
+		case 1:
+			Fin_Rectangles.PerfectSquare();
+			break;
+		case 2:
+			GFG.choose1();
+			GFG.choose2();
+			GFG.print();
+			
+			break;
+			
+	    default:
+				System.out.println("U entred something weird");
+				break;
+		}
+	}
+	}
+ 
+
+
